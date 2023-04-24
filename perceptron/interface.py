@@ -7,7 +7,10 @@ def main():
     pygame.display.set_caption("pygame-perceptron UI")
 
     grid = np.zeros(28 * 28).reshape((28, 28))
-    brush = np.array([[1, 3, 1], [2, 5, 2], [1, 3, 1]])
+    brush = np.array([
+        [1, 3, 1],
+        [2, 5, 2],
+        [1, 3, 1]])
     running = True
     while running:
         for event in pygame.event.get():
