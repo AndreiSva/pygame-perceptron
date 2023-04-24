@@ -7,7 +7,7 @@ def main():
     pygame.display.set_caption("pygame-perceptron UI")
 
     grid = np.zeros(28 * 28).reshape((28, 28))
-    #brush = np.array([1, 3, 1], [2, 5, 2], [1, 3, 1]).reshape((3,3))
+    brush = np.array([[1, 3, 1], [2, 5, 2], [1, 3, 1]])
     running = True
     while running:
         for event in pygame.event.get():
@@ -22,10 +22,11 @@ def main():
 
         if pygame.mouse.get_pressed()[0] == True:
             x, y = pygame.mouse.get_pos()
-            x_cell = x // 10
-            y_cell = y // 10
-            if grid[y_cell][x_cell] < 255:
-                grid[y_cell][x_cell] += 1
+            x_cell = (x // 10) - 1
+            y_cell = (y // 10) - 1
+            if x_cell >= 0 and x_cell < 26 and y_cell >= 0 and y_cell < 26:
+                grid[y_cell:y_cell + brush.shape[0], x_cell:x_cell + brush.shape[1]] += brush
+            grid = np.clip(grid, 0, 255)
                 
         # forward propagate
 
