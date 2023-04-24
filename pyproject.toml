@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "perceptron"
+version = "0.0.1"
+authors = [
+  { name="Andrei Sova", email="andreisva2023@gmail.com" },
+]
+description = "A pretty cool game"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[tool.setuptools.packages]
+find = {}
+
+[project.scripts]
+perceptron = "perceptron.interface:main"
